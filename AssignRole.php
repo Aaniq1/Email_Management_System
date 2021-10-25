@@ -11,7 +11,7 @@ class Role
             $response=$user_model->checkAcessMerchant($token);
             $newarray=array();
             // echo $response;
-            if (!$response)
+            if (!$response['valid'])
             {
                 $myObj = new stdClass();
                 $myObj->status = "Invalid";

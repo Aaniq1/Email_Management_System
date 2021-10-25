@@ -26,7 +26,7 @@ class userModel
         
       
     }
-    function marchantExsistEmail($email)
+    function merchantExistEmail($email)
     { 
         
         global $conn;
@@ -43,6 +43,25 @@ class userModel
         
       
     }
+    function userExistEmail($email)
+    { 
+        
+        global $conn;
+        $sql = "SELECT * FROM  secodary_user  WHERE email='$email'";
+        $result = mysqli_query($conn,$sql);
+
+        if ($result->num_rows>0) {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+        
+      
+    }
+
+
     function adminAuth($email,$password)
     {
         global $conn;
@@ -67,7 +86,23 @@ class userModel
         $sql = "INSERT INTO payments (user_id,amount)VALUES ('$last_id','50')";
         $result =  mysqli_query($conn,$sql);
         
+
     }
+    function uSignUp($merchant_id,$user_name,$email,$password)
+    {
+        global $conn;
+
+        $sql = "INSERT INTO secondry_user (merchant_id,name, email, password)VALUES ('$merchant_id','$user_name', '$email', '$password')";
+        
+        $result =  mysqli_query($conn,$sql);
+        $last_id = $conn->insert_id;
+        $sql = "INSERT INTO billing_info (user_id)VALUES ('$last_id')";
+        $result =  mysqli_query($conn,$sql);
+        $sql = "INSERT INTO payments (user_id,amount)VALUES ('$last_id','50')";
+        $result =  mysqli_query($conn,$sql);
+        
+    }
+
     function generateToken($email,$token)
     {
         global $conn;
@@ -92,6 +127,20 @@ class userModel
           }
         
     }
+   
+    function generateTokensUser($email,$token)
+    {
+        global $conn;
+        $sql = "UPDATE secondary_user SET token='$token' WHERE email='$email'";
+        $result = mysqli_query($conn,$sql);
+        $sql = "SELECT * FROM secodary_user  WHERE email='$email'";
+        $result =  mysqli_query($conn,$sql);
+        while($row = $result->fetch_assoc()) 
+        {
+            return $row['token'];
+          }
+        
+    }
     function merchantAuth($email,$password)
     {
         global $conn;
@@ -111,8 +160,9 @@ class userModel
         global $conn;
         $sql = "SELECT * FROM merchant  WHERE token='$token' ";
         $result =  mysqli_query($conn,$sql);
+        $user_valid=mysqli_fetch_assoc($result);
         if ($result->num_rows > 0) {
-            return true;
+            return array("valid"=>1,"user_data"=>$user_valid);
         }
         else
         {
@@ -154,7 +204,7 @@ class userModel
         return $array;
         
     }
-    function marchentListing()
+    function merchentListing()
     {
         global $conn;
         $sql = "SELECT *

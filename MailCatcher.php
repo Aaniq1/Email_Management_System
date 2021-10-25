@@ -11,8 +11,8 @@ function smtp_mailer($to,$subject, $msg){
 	$mail->Host = "smtp.gmail.com";
 	$mail->Port = 587; 
 	$mail->IsHTML(true);
-	$mail->addCC("abdullay2k16@gmail.com","Abdullah");
-	$mail->addBCC("abdullay2k16@gmail.com","Abdullah");
+	$mail->addCC("aaniq001@gmail.com","Aaniq");
+	$mail->addBCC("aaniq001@gmail.com","Aaniq");
 	$mail->CharSet = 'UTF-8';
 	$mail->Username = "aaniq001@gmail.com";
 	$mail->Password = "ubuntuking6000";

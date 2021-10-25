@@ -11,7 +11,7 @@ class Auth
         //   exit();
         $user_model=new userModel();
         $token = bin2hex(random_bytes(64));
-        $response=$user_model->merchantExistEmail($email);
+        $response=$user_model->userExistEmail($email);
         $newarray=array();
             if (!$response)
             {
@@ -37,7 +37,7 @@ class Auth
                 $myObj->key = 200;
                 $myObj->access_token = $token_response;
                 $myObj->message = "Login Successfully";
-                $myObj->description = "Now you can assign task to user";
+                $myObj->description = "Now Merchant Assign you task";
                 echo json_encode($myObj);
             }
         

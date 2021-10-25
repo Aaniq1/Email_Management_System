@@ -9,7 +9,7 @@ class Listing
         $user_model=new userModel();
             $response=$user_model->checkAcessMerchant($token);
             $newarray=array();
-            if (!$response)
+            if (!$response['valid'])
             {
                 $myObj = new stdClass();
                 $myObj->status = "Invalid";
