@@ -4,7 +4,7 @@ require_once('connection.php');
 
 class userModel
 {
-    public $dd="hdh";
+    
     function __construct() {
         global $conn;
         $conn=dbConnection();
