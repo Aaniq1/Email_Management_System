@@ -13,10 +13,11 @@ class Auth
         $token = bin2hex(random_bytes(64));
         $response=$user_model->merchantExistEmail($email);
         $newarray=array();
-            if (!$response)
+            if ($response)
             {
                 $newarray=["204",'Email Does Not Exist'];
                 echo json_encode($newarray);
+                return 0;
             }
             // $login_response=$user_model->merchantAuth($email,md5($password));
             // if(!$login_response)

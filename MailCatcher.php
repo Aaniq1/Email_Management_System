@@ -1,5 +1,5 @@
 <?php
-include('smtp/PHPMailerAutoload.php');
+// include('smtp/PHPMailerAutoload.php');
 // $html='You have credit $05';
 // echo smtp_mailer('aaniq001@gmail.com','subject',$html);
 function smtp_mailer($to,$subject, $msg){

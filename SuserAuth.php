@@ -29,7 +29,7 @@ class Auth
             //     $newarray=["204",'Invalid Email or Password'];
             //     echo json_encode($newarray);
             // }
-            $token_response=$user_model->generateTokenMerchant($email,$token);
+            $token_response=$user_model->generateTokensUser($email,$token);
             if($token_response)
             {
                 $myObj = new stdClass();

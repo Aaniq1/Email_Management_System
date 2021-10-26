@@ -47,16 +47,10 @@ class userModel
     { 
         
         global $conn;
-        $sql = "SELECT * FROM  secodary_user  WHERE email='$email'";
+        $sql = "SELECT * FROM  secondry_user  WHERE email='$email'";
         $result = mysqli_query($conn,$sql);
 
-        if ($result->num_rows>0) {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+        return $result;
         
       
     }
@@ -131,9 +125,9 @@ class userModel
     function generateTokensUser($email,$token)
     {
         global $conn;
-        $sql = "UPDATE secondary_user SET token='$token' WHERE email='$email'";
+        $sql = "UPDATE secondry_user SET token='$token' WHERE email='$email'";
         $result = mysqli_query($conn,$sql);
-        $sql = "SELECT * FROM secodary_user  WHERE email='$email'";
+        $sql = "SELECT * FROM secondry_user  WHERE email='$email'";
         $result =  mysqli_query($conn,$sql);
         while($row = $result->fetch_assoc()) 
         {
@@ -169,6 +163,20 @@ class userModel
             return false;
         }
     }
+    function checkAcessUser($token)
+    {
+        global $conn;
+        $sql = "SELECT * FROM secondry_user  WHERE token='$token' ";
+        $result =  mysqli_query($conn,$sql);
+        $user_valid=mysqli_fetch_assoc($result);
+        if ($result->num_rows > 0) {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     function checkAcessAdmin($token)
     {
         global $conn;
@@ -176,6 +184,64 @@ class userModel
         $result =  mysqli_query($conn,$sql);
         if ($result->num_rows > 0) {
             return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    function accessPayment($user_id)
+    {
+        global $conn;
+        $sql = "SELECT * FROM assign_role  WHERE user_id='$user_id' AND role_id='1' ";
+        $result =  mysqli_query($conn,$sql);
+        if ($result->num_rows > 0) {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    function accessBilling($user_id)
+    {
+        global $conn;
+        $sql = "SELECT * FROM assign_role  WHERE user_id='$user_id' AND role_id='2' ";
+        $result =  mysqli_query($conn,$sql);
+        if ($result->num_rows > 0) {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    function viewPayment($user_id)
+    {
+        global $conn;
+        $sql = "SELECT * FROM payments  WHERE user_id='$user_id' ";
+        $result =  mysqli_query($conn,$sql);
+        if ($result->num_rows > 0) {
+            $result =  mysqli_query($conn,$sql);
+            while($row = $result->fetch_assoc()) {
+            return $row['amount'];
+          }
+        }
+        else
+        {
+            return false;
+        }
+    }
+    function viewBilling($user_id)
+    {
+        global $conn;
+        $sql = "SELECT * FROM billing_info  WHERE user_id='$user_id' ";
+        $result =  mysqli_query($conn,$sql);
+        if ($result->num_rows > 0) {
+            $result =  mysqli_query($conn,$sql);
+            while($row = $result->fetch_assoc()) {
+            return $row;
+          }
         }
         else
         {
@@ -221,6 +287,45 @@ class userModel
         return $array;
         
     }
+    function sUploadProfile($user_id,$picture)
+    {
+        global $conn;
+        $sql = "UPDATE secondry_user SET picture='$picture' WHERE id='$user_id'";
+        $result = mysqli_query($conn,$sql);
+
+        return $result;
+    }
+    function merchantUploadProfile($user_id,$picture)
+    {
+        global $conn;
+        $sql = "UPDATE merchant SET picture='$picture' WHERE id='$user_id'";
+        $result = mysqli_query($conn,$sql);
+
+        return $result;
+    }
+    function UpdateAmount($user_id)
+    {
+        global $conn;
+        $sql = "UPDATE payments SET amount=amount-0.0489 WHERE user_id='$user_id'";
+        $result = mysqli_query($conn,$sql);
+        $sql = "SELECT * FROM request  WHERE user_id='$user_id' ";
+        $result =  mysqli_query($conn,$sql);
+        if ($result->num_rows > 0) {
+        $sql = "UPDATE request SET quantity=quantity+1 WHERE user_id='$user_id'";
+        $result = mysqli_query($conn,$sql);
+        return $result;
+        }
+        else
+        {
+            $sql = "INSERT INTO request (user_id, quantity)VALUES ('$user_id', '1')";
+            mysqli_query($conn,$sql);
+        }
+    }
+    
     
 }
+
+   
+    
+
 ?>
