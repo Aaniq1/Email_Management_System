@@ -1,0 +1,682 @@
+{
+	"info": {
+		"_postman_id": "579df558-d5ad-4f2e-b8b2-a6d0f2d09508",
+		"name": "Send_Mailer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Admin_Auth",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "type",
+							"value": "4",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "aaniq1122@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/AdminAuth.php",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"AdminAuth.php"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "aaniq@gmail.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MerchantSignUp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "aaniqali94@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "text"
+						},
+						{
+							"key": "user_name",
+							"value": "Aaniq",
+							"type": "text"
+						},
+						{
+							"key": "card_no",
+							"value": "882111",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "Punjab",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/MerchantSignUp.php",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"MerchantSignUp.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MerchantAuth.php",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "9f88fd1e41016629540011e1969ded",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "type",
+							"value": "4",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "ua758323@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/MerchantAuth.php",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"MerchantAuth.php"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "aaniq@gmail.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Assign_Role",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "token",
+							"value": "ecd1aaf9b7b3cbf5ccb15aeb889216",
+							"type": "text"
+						},
+						{
+							"key": "user_id",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/send_mailer2/second_evaluation_task/AssignRole.php?type=1&email=aaniq@gmail.com&password=12345",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"send_mailer2",
+						"second_evaluation_task",
+						"AssignRole.php"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "1"
+						},
+						{
+							"key": "email",
+							"value": "aaniq@gmail.com"
+						},
+						{
+							"key": "password",
+							"value": "12345"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MerchantListing",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "token",
+							"value": "ecd1aaf9b7b3cbf5ccb15aeb889216",
+							"type": "text"
+						},
+						{
+							"key": "user_id",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "3",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/send_mailer2/second_evaluation_task/MerchantListing.php?type=1&email=aaniq@gmail.com&password=12345",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"send_mailer2",
+						"second_evaluation_task",
+						"MerchantListing.php"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "1"
+						},
+						{
+							"key": "email",
+							"value": "aaniq@gmail.com"
+						},
+						{
+							"key": "password",
+							"value": "12345"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AdminListing.php",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "token",
+							"value": "99a96e8d6fd16d3f6bcea17dad7b3e9189802af7afb1c1a8338ea7518c889e11a1fa9a428c62a0da72b800b93fa98760c1e2b47fbe3bb1c00ba6d0d8525c31fe",
+							"type": "text"
+						},
+						{
+							"key": "user_id",
+							"value": "3",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "role",
+							"value": "3",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/send_mailer2/second_evaluation_task/AdminListing.php?type=1&email=aaniq@gmail.com&password=12345",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"send_mailer2",
+						"second_evaluation_task",
+						"AdminListing.php"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "1"
+						},
+						{
+							"key": "email",
+							"value": "aaniq@gmail.com"
+						},
+						{
+							"key": "password",
+							"value": "12345"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User_Auth",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "token",
+							"value": "c005675d74766d8c7dea1a74a7a914",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "aaniqa323",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "aaniq07@gmail.comD",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/SuserSigup.php",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"SuserSigup.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SecondaryUserLogin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SuserPaymentsphp",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "9f88fd1e41016629540011e1969ded",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/SuserPayments.php",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"SuserPayments.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SuserBilling.php",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "9f88fd1e41016629540011e1969ded",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/SuserPayments.php",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"SuserPayments.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "userProfile.php",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "9f88fd1e41016629540011e1969ded",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/SuserPayments.php",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"SuserPayments.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MerchantProfile.php",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "9f88fd1e41016629540011e1969ded",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/SuserPayments.php",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"SuserPayments.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MerchantSendMail.php",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "9f88fd1e41016629540011e1969ded",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/SuserPayments.php",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"SuserPayments.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stripe.php",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "9f88fd1e41016629540011e1969ded",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/SuserPayments.php",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"SuserPayments.php"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost/send_mailer2/second_evaluation_task"
+		},
+		{
+			"key": "token",
+			"value": "f4ab7ff3112fc22d12d828db02a71af01e65c065a7775dd7bba5138ce49fb72881d67c3727fc4ad134d0642515d0af08dd9e52810f40c72b99c936df5cdce96c"
+		}
+	]
+}
